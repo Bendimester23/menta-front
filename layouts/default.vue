@@ -1,5 +1,5 @@
 <template>
-  <div class="p-0 m-0 overflow-x-hidden">
+  <div class="p-0 m-0 overflow-x-hidden max-w-screen min-w-screen min-h-screen" data-theme="dark">
     <Navbar />
     <Nuxt />
   </div>

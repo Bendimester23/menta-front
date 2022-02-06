@@ -11,19 +11,9 @@
       </div>
       <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-neutral">
         <div class="card-body">
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Csoport neve</span>
-            </label>
-            <input
-              type="text"
-              placeholder="név"
-              class="input input-bordered"
-              v-model="group_name"
-            />
-          </div>
+          <TextInput v-model="code" placeholder="kód" label="Csatlakozás csoporthoz" :small="true" />
           <div class="form-control mt-6">
-            <a :class="`btn ${group_name == `` ? `btn-disabled` : `btn-primary`}`" :href="$store.state.auth.isLoggedIn ? `./dashboard/create-group?name=${group_name}` : `./auth/register?thencreategroup=${group_name}`">Vágjunk bele{{group_name.lenght}}</a>
+            <nuxt-link :class="`btn ${isCodeValid ? `btn-primary` : `btn-disabled`}`" :to="redirectUrl">Vágjunk bele</nuxt-link>
           </div>
         </div>
       </div>
@@ -33,10 +23,23 @@
 
 <script lang="ts">
 import Vue from "vue";
+import TextInput from "../ui/TextInput.vue";
 export default Vue.extend({
+  components: { TextInput },
   name: `Hero`,
   data: () => ({
-    group_name: ``
-  })
+    code: ``
+  }),
+  computed: {
+    redirectUrl() {
+      if (this.$auth.loggedIn) {
+        return `/dashboard/join-group?code=${this.code}`
+      }
+      return `/auth/register?group=${this.code}`
+    },
+    isCodeValid() {
+      return this.code.match(/^([A-Z])\w{7}$/g)
+    }
+  }
 });
 </script>

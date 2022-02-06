@@ -12,7 +12,7 @@ export default {
     ]
   },
   css: [
-    `~/assets/main.css`
+    '~/assets/main.css'
   ],
   plugins: [
   ],
@@ -23,7 +23,6 @@ export default {
   ],
   modules: [
     '@nuxtjs/pwa',
-    ['cookie-universal-nuxt', { alias: 'cookiz' }],
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
     '@nuxtjs/toast'
@@ -70,7 +69,7 @@ export default {
           maxAge: 60 * 60 * 24 * 30
         },
         user: {
-          property: 'user',
+          property: '',
           autoFetch: true
         },
         endpoints: {

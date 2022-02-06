@@ -1,6 +1,5 @@
 <template>
   <div class="flex flex-col m-0 p-0 h-screen">
-    <Navbar />
     <div class="flex flex-col m-2 items-center h-full p-2">
       <div class="m-20 my-auto flex flex-col card bordered p-4 shadow-2xl">
         <!--Da icon-->
@@ -25,12 +24,15 @@
           A kódot elküldtük a(z) <b>{{ $route.query.email }}</b> címre. Ha nem
           érkezik meg 5-10 percenben belül, akkor baj van.
         </p>
-        <TextInput label="Megerősítő kód" placeholder="kód" v-model="code" :footer="validCode ? `` : `Hibás kód!`" />
+        <TextInput
+          label="Megerősítő kód"
+          placeholder="kód"
+          v-model="code"
+          :footer="validCode ? `` : `Hibás kód!`"
+        />
         <div class="form-control">
           <button
-            :class="`btn mt-2 ${
-              validCode ? `btn-primary` : `btn-disabled`
-            }`"
+            :class="`btn mt-2 ${validCode ? `btn-primary` : `btn-disabled`}`"
             :disabled="code == ``"
             @click="verify()"
           >
@@ -57,15 +59,19 @@ export default Vue.extend({
   auth: false,
   methods: {
     async verify() {
-      const status = await this.$store.dispatch(`auth/confirmEmail`, this.code)
-      if (status != 200) {
-        this.$store.commit(
-          `notif/setBottomNotifText`,
-          `Hibás kód!`
+      try {
+        await this.$axios.get(
+          `/api/auth/verify/${this.$route.query.id}/${this.code}`
         );
-        this.$store.commit(`notif/showBottomNotif`);
-      } else {
-        this.$nuxt.$router.push({path: `/auth/login`})
+
+        this.$toast.success(`E-mail cím sikeresen megerősítve!`);
+        this.$nuxt.$router.push({ path: `/auth/login` });
+      } catch (e: any) {
+        if (e.message.includes(`404`)) {
+          this.$toast.error(`Érvénytelen kód!`)
+        } else {
+          this.$toast.error(`Ismeretlen szerverhiba!`)
+        }
       }
     },
   },

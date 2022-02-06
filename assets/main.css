@@ -1,15 +1,26 @@
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.5s;
+  transition: all 0.25s;
 }
-.page-enter,
+.page-enter {
+  opacity: 0;
+  transform: translate(-100%, 0%);
+}
+
 .page-leave-to {
   opacity: 0;
+  transform: translate(100%, 0%);
 }
 
 .layout-enter-active, .layout-leave-active {
-  transition: opacity .5s
+  transition: all .25s
 }
 .layout-enter, .layout-leave-active {
-  opacity: 0
+  opacity: 0;
+  transform: translate(-100%, 0%);
+}
+
+.layout-leave-active {
+  opacity: 0;
+  transform: translate(100%, 0%);
 }

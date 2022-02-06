@@ -1,11 +1,12 @@
 <template>
   <div class="form-control">
     <label class="label">
-      <span class="text-lg">{{ label }}</span>
+      <span v-if="small">{{ label }}</span>
+      <span class="text-lg" v-else>{{ label }}</span>
     </label>
     <input
       :placeholder="placeholder"
-      class="input input-lg input-info input-bordered"
+      :class="`input ${small || `input-lg`} input-info input-bordered`"
       :type="password ? `password`: `text`"
       :value="content"
       @input="processInput"
@@ -25,7 +26,8 @@ export default Vue.extend({
     placeholder: String,
     footer: String,
     value: String,
-    password: Boolean
+    password: Boolean,
+    small: Boolean
   },
   data() {
     return {

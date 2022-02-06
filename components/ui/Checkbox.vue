@@ -4,7 +4,7 @@
       <span class="text-lg m-2">{{name}}</span>
       <input
         type="checkbox"
-        checked="checked"
+        :checked="content ? `checked` : ``"
         :value="content"
         class="toggle toggle-lg ml-2"
         @input="processInput"
