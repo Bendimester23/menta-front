@@ -4466,10 +4466,10 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
-daisyui@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.0.2.tgz#669b1b35d87d8a90b37669d9cf76c860c64a7140"
-  integrity sha512-RGpgotS1VTKsp/3apsAc08EcvZzaMo43yItZ4gO/NtH0fFhkW/aXwfzKvx1Mqu6Zm1EA8eF8EGv/3a0Olio9sw==
+daisyui@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.0.6.tgz#fc509180b4cbaacf834b2da7c369586fe31331f4"
+  integrity sha512-Ub5hdGXEvyOEW5RfSEZjSEOGYZhxZ7+EVS9EjkYq9cV4qxe0l6eSl92ira5b0MrL5hR16Ntx981Hg7qbYMnljg==
   dependencies:
     color "^4.2"
     tailwindcss "^3.0"
