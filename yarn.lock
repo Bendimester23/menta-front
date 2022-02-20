@@ -2766,6 +2766,13 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+animated-tailwindcss@^3.2.5:
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/animated-tailwindcss/-/animated-tailwindcss-3.2.5.tgz#d9ab82559cee9b0caea06f621840cd207cfabbe1"
+  integrity sha512-X2NB0q/MiJcr0/+0VRx46cLTVBea45F8N6VlUNGw3XqidCS+96xtJf/9lQ9CklHhVe8pSIT1V/gMuXhLOYcX2g==
+  dependencies:
+    csstype "^3"
+
 ansi-align@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-3.0.1.tgz#0cdf12e111ace773a86e9a1fad1225c43cb19a59"
@@ -4455,6 +4462,11 @@ cssstyle@^2.3.0:
   integrity sha512-AZL67abkUzIuvcHqk7c09cezpGNcxUxU4Ioi/05xHk4DQeTkWmGYftIE6ctU6AEt+Gn4n1lDStOtj7FKycP71A==
   dependencies:
     cssom "~0.3.6"
+
+csstype@^3:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.10.tgz#2ad3a7bed70f35b965707c092e5f30b327c290e5"
+  integrity sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==
 
 cuint@^0.2.2:
   version "0.2.2"

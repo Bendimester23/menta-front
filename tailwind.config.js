@@ -1,7 +1,9 @@
-module.exports = {
+const withAnimations = require('animated-tailwindcss');
+
+module.exports = withAnimations({
   purge: [],
   mode: 'jit',
-  darkMode: `media`,
+  darkMode: `class`,
   theme: {
     extend: {
       keyfames: {
@@ -24,4 +26,4 @@ module.exports = {
   plugins: [
     require('daisyui'),
   ],
-}
+})

@@ -1,26 +1,28 @@
 .page-enter-active,
 .page-leave-active {
   transition: all 0.25s;
+  transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .page-enter {
   opacity: 0;
-  transform: translate(-100%, 0%);
+  transform: translate(-25%, 0%);
 }
 
 .page-leave-to {
   opacity: 0;
-  transform: translate(100%, 0%);
+  transform: translate(25%, 0%);
 }
 
 .layout-enter-active, .layout-leave-active {
-  transition: all .25s
+  transition: all .25s;
+  transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .layout-enter, .layout-leave-active {
   opacity: 0;
-  transform: translate(-100%, 0%);
+  transform: translate(-25%, 0%);
 }
 
 .layout-leave-active {
   opacity: 0;
-  transform: translate(100%, 0%);
+  transform: translate(25%, 0%);
 }

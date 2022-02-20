@@ -22,28 +22,33 @@
     </svg>
     <h1 class="text-center text-2xl font-bold">Csoport beállításai</h1>
     <div class="m-20 flex flex-col card bordered p-4">
-      <checkbox v-model="needs_approval" name="Belépések korlátozása" />
-      <checkbox v-model="join_with_code" name="Csatlakozás kóddal" />
-      <checkbox v-model="connect_to_school" name="Csatlakoztatás iskolához" />
-      <div class="form-control" v-if="connect_to_school">
-        <label class="label">
-          <span class="text-lg">Iskola kódja:</span>
-        </label>
-        <input
-          placeholder="Iskola neve"
-          class="input input-lg input-info input-bordered"
-          type="text"
-          v-model="group_name"
-        />
-        <label class="label">
-          <span class="label-text-alt">{{ name_state }}</span>
-        </label>
+      <checkbox v-model="data.needs_approval" name="Belépések korlátozása" />
+      <checkbox v-model="data.join_with_code" name="Csatlakozás kóddal" />
+      <text-input
+        label="Kód előtag"
+        v-if="data.join_with_code"
+        v-model="data.code_prefix"
+        :footer="isCodePrefixValid ? `` : `Minimum 2 maximum 5 karakter!`"
+      />
+      <checkbox
+        v-model="data.connect_to_school"
+        name="Csatlakoztatás iskolához"
+      />
+      <text-input
+        label="Iskola kódja"
+        v-if="data.connect_to_school"
+        v-model="data.school_code"
+      />
+      <div class="form-control">
+        <input type="button" value="Kész" :class="`btn ${isCodePrefixValid ? `btn-primary` : `btn-disabled`} mt-2`" @click="create()" :disabled="!isCodePrefixValid" />
       </div>
       <div class="form-control">
-        <input type="button" value="Kész" class="btn btn-primary mt-2" />
-      </div>
-      <div class="form-control">
-        <nuxt-link type="button" class="btn btn-outline mt-2" :to="`/dashboard/create-group?name=${group_name}`" >Vissza</nuxt-link>
+        <nuxt-link
+          type="button"
+          class="btn btn-outline mt-2"
+          :to="`/dashboard/create-group?name=${data.name}`"
+          >Vissza</nuxt-link
+        >
       </div>
     </div>
   </div>
@@ -52,22 +57,49 @@
 <script lang="ts">
 import Vue from "vue";
 import Checkbox from "~/components/ui/Checkbox.vue";
+import TextInput from "~/components/ui/TextInput.vue";
 
 export default Vue.extend({
-  components: { Checkbox },
+  components: { Checkbox, TextInput },
   name: `finish-group`,
   data: () => ({
     visible: true,
-    name_state: `Kérlek add meg a csoport nevét.`,
-    needs_approval: false,
-    join_with_code: false,
-    connect_to_school: false,
-    group_name: ``,
+    data: {
+      school_code: ``,
+      join_with_code: false,
+      needs_approval: false,
+      connect_to_school: false,
+      name: ``,
+      code_prefix: ``
+    },
   }),
   mounted() {
     if (this.$route.query[`name`] != null) {
-      this.group_name = this.$route.query[`name`] as string;
+      this.data.name = this.$route.query[`name`] as string;
     }
+  },
+  computed: {
+    isCodePrefixValid() {
+      return !this.data.join_with_code || this.data.code_prefix.match(/^\w{2,5}$/g) != undefined
+    }
+  },
+  methods: {
+    async create() {
+      try {
+        const res = await this.$axios.put(`/api/group/create`, this.data);
+        console.log(res);
+        this.$router.push({
+          path: `/dashboard/group/${res.data.id}`
+        })
+      } catch (e: any) {
+        const msg = e.message;
+        if (msg.includes(`400`)) {
+          this.$toast.error(`Hibásan kitöltött mező(k)!`)
+        } else if (msg.includes(`500`)) {
+          this.$toast.error(`Ismeretlen szerverhiba!`)
+        }
+      }
+    },
   },
 });
 </script>
