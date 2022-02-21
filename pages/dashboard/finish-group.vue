@@ -88,6 +88,7 @@ export default Vue.extend({
       try {
         const res = await this.$axios.put(`/api/group/create`, this.data);
         console.log(res);
+        this.$store.commit(`invalidateGroupsCache`)
         this.$router.push({
           path: `/dashboard/group/${res.data.id}`
         })

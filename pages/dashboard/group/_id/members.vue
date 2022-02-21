@@ -1,5 +1,6 @@
 <template>
   <div class="overflow-x-auto m-12">
+    <nuxt-link :to="`/dashboard/group/${$route.params.id}/`" class="btn mb-2">Vissza</nuxt-link>
     <h1 class="text-2xl font-bold mb-2">{{ name }} tagjai:</h1>
     <table class="table w-full">
       <!-- head -->
@@ -13,8 +14,8 @@
       </thead>
       <tbody>
         <!-- row 1 -->
-        <tr v-for="m in members" v-bind:key="m.id" class="hover rounded-md">
-          <th>1</th>
+        <tr v-for="(m, i) in members" v-bind:key="m.id" class="hover rounded-md">
+          <th>{{i+1}}</th>
           <td>
             {{ m.username }}
             <p

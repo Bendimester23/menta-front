@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <h1>Csoport neve: {{group.name}}</h1>
+    <div class="m-2">
+        <h1 class="text-2xl font-bold mb-2">Csoport neve: {{group.name}}</h1>
+        <p>Csoport kód: {{group.loginCode}}</p>
+        <nuxt-link class="btn mt-2" :to="`/dashboard/group/${$route.params.id}/members`">Tagok</nuxt-link>
+        
     </div>
 </template>
 
