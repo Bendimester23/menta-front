@@ -2766,10 +2766,10 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
-animated-tailwindcss@^3.2.5:
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/animated-tailwindcss/-/animated-tailwindcss-3.2.5.tgz#d9ab82559cee9b0caea06f621840cd207cfabbe1"
-  integrity sha512-X2NB0q/MiJcr0/+0VRx46cLTVBea45F8N6VlUNGw3XqidCS+96xtJf/9lQ9CklHhVe8pSIT1V/gMuXhLOYcX2g==
+animated-tailwindcss@^3.2.7:
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/animated-tailwindcss/-/animated-tailwindcss-3.2.7.tgz#5ab595f0ea512c7c86b420599ced2ef9beb8dfbb"
+  integrity sha512-Fvg/AYgLINgZNnbh09fxOQ6wrgp6gwy3jeBktMcf7fZcroyJMSYc4FxLy1Wqo7DAnwSe7jA6oTLJKbWkwd06cQ==
   dependencies:
     csstype "^3"
 
