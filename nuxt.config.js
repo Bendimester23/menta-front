@@ -46,7 +46,7 @@ export default {
     mode: 'out-in'
   },
   axios: {
-    baseURL: 'http://localhost:8080'
+    baseURL: process.env.MODE == `prod` ? `https://menta.bendi.cf` : 'http://localhost:8080'
   },
   auth: {
     redirect: {
