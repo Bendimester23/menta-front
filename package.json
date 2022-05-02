@@ -19,7 +19,7 @@
     "@nuxtjs/toast": "^3.3.1",
     "@vue-hero-icons/solid": "^1.7.2",
     "cookie-universal-nuxt": "^2.1.5",
-    "core-js": "^3.19.3",
+    "core-js": "^3.22.3",
     "daisyui": "^2.0.2",
     "nuxt": "^2.15.8",
     "vue": "^2.6.14",
