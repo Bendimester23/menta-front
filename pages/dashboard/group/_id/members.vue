@@ -38,7 +38,7 @@
             </p>
           </td>
           <td>{{ fancyDate(m.createdAt) }}</td>
-          <td>{{ fancyDate(m.createdAt) }}</td>
+          <td>{{ fancyDate(m.joinedAt) }}</td>
         </tr>
       </tbody>
     </table>

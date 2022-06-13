@@ -8,7 +8,7 @@ type sT = {
     groups: any
 }
 
-type Group = {
+export type Group = {
     id              : String
     createdAt       : String
     updatedAt       : String
@@ -17,6 +17,7 @@ type Group = {
     loginCode       : String
     requiresAproval : Boolean
     members         : any[]
+    exams           : any[]
 }
 
 export const mutations = {
@@ -32,9 +33,14 @@ export const mutations = {
 
 export const actions = {
     async fetchGroup(store: any, id: string) {
-        console.log(id);
-        const resp = await ((this as any).$axios as NuxtAxiosInstance).get(`/api/group/${id}/`)
-        console.log(resp.data);
-        store.commit(`setGroup`, {id, group: resp.data})
+        try {
+            let { data } = await ((this as any).$axios as NuxtAxiosInstance).get(`/api/group/${id}/`)
+            let g = data;
+            const res = await ((this as any).$axios as NuxtAxiosInstance).get(`/api/group/${id}/exams`)
+            g.exams = res.data;
+            store.commit(`setGroup`, {id, group: g})
+        } catch(e) {
+            (this as any).$toast.error(`Hiba történt!`)
+        }
     }
 }
