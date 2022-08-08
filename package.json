@@ -18,7 +18,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/toast": "^3.3.1",
     "@vue-hero-icons/solid": "^1.7.2",
-    "cookie-universal-nuxt": "^2.1.5",
+    "cookie-universal-nuxt": "^2.2.2",
     "core-js": "^3.19.3",
     "daisyui": "^2.0.2",
     "nuxt": "^2.15.8",
