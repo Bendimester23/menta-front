@@ -22,8 +22,6 @@ export type Group = {
 
 export const mutations = {
     setGroup(state: sT, data: {id: string, group: Group}) {
-        console.log(data);
-        
         state.groups[data.id] = data.group
     },
     deleteGroup(state: sT, id: string) {
@@ -34,7 +32,7 @@ export const mutations = {
 export const actions = {
     async fetchGroup(store: any, id: string) {
         try {
-            let { data } = await ((this as any).$axios as NuxtAxiosInstance).get(`/api/group/${id}/`)
+            const { data } = await ((this as any).$axios as NuxtAxiosInstance).get(`/api/group/${id}/`)
             let g = data;
             const res = await ((this as any).$axios as NuxtAxiosInstance).get(`/api/group/${id}/exams`)
             g.exams = res.data;

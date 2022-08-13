@@ -38,7 +38,7 @@ export default Vue.extend({
   }),
   computed: {
     isNameValid() {
-      return this.group_name?.match(/^.{6,22}$/g) != null;
+      return (this.group_name || ``).replace(/(^\s*)|(\s*$)/gm, ``).match(/^.{6,22}$/g) != null;
     },
   },
   components: {

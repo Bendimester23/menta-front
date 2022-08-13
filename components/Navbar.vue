@@ -2,13 +2,14 @@
   <div
     class="
       navbar
-      m-2
       shadow-lg
       bg-neutral
       text-neutral-content
       rounded-box
       z-30
       sticky
+      m-2
+      w-[calc(100%-1rem)]
     "
   >
     <div class="px-2 mx-2 navbar-start">

@@ -1,7 +1,6 @@
 const withAnimations = require('animated-tailwindcss');
 
 module.exports = withAnimations({
-  purge: [],
   mode: 'jit',
   darkMode: `class`,
   theme: {
