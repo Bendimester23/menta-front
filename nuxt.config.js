@@ -25,7 +25,8 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
-    '@nuxtjs/toast'
+    '@nuxtjs/toast',
+    '@deepsource/nuxt-websocket'
   ],
   router: {
     middleware: ['auth']
@@ -46,7 +47,7 @@ export default {
     mode: 'out-in'
   },
   axios: {
-    baseURL: process.env.MODE == `prod` ? `https://menta.bendi.cf` : 'http://46.31.178.145'
+    baseURL: process.env.MODE == `prod` ? `https://menta.bendi.cf` : 'http://192.168.1.17:8080'
   },
   auth: {
     redirect: {
@@ -84,5 +85,8 @@ export default {
   },
   toast: {
     position: 'bottom-center'
+  },
+  websocket: {
+    url: 'ws://localhost:8080/api/ws/'
   }
 }
