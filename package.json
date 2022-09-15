@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@deepsource/nuxt-websocket": "^1.0.0",
-    "@nuxtjs/auth-next": "5.0.0-1643791578.532b3d6",
+    "@nuxtjs/auth-next": "5.0.0-1648802546.c9880dc",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/toast": "^3.3.1",
